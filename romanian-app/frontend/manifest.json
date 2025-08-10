@@ -1,0 +1,9 @@
+{
+  "name": "Romanian Learning",
+  "short_name": "RO Learn",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "description": "A1-B1 Romanian learning app",
+  "icons": []
+}
