@@ -37,7 +37,18 @@ async function ingest() {
     // mock SRS items
     const mock = JSON.parse(fs.readFileSync(path.join(__dirname, '../mock_data/unit1.json'), 'utf-8'));
     for (const v of mock.vocab) {
-      db.db.run('INSERT INTO srs_items(question, answer) VALUES(?,?)', [v.ro, v.he]);
+      const exists = await new Promise((resolve, reject) => {
+        db.db.get('SELECT 1 FROM srs_items WHERE question = ? AND answer = ?', [v.ro, v.he], (err, row) => {
+          if (err) reject(err); else resolve(row);
+        });
+      });
+      if (!exists) {
+        await new Promise((resolve, reject) => {
+          db.db.run('INSERT INTO srs_items(question, answer) VALUES(?,?)', [v.ro, v.he], err => {
+            if (err) reject(err); else resolve();
+          });
+        });
+      }
     }
 
     console.log(`Ingested ${files.length} files and ${mock.vocab.length} vocab items.`);
