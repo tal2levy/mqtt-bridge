@@ -1,0 +1,11 @@
+{
+  "unit": "Introducere",
+  "vocab": [
+    {"ro": "bună", "he": "שלום", "ru": "привет", "en": "hello"},
+    {"ro": "mulțumesc", "he": "תודה", "ru": "спасибо", "en": "thank you"}
+  ],
+  "dialogues": [
+    {"ro": "Bună ziua!", "he": "שלום יום טוב!", "ru": "Добрый день!", "en": "Good afternoon!"},
+    {"ro": "Ce faci?", "he": "מה שלומך?", "ru": "Как дела?", "en": "How are you?"}
+  ]
+}
